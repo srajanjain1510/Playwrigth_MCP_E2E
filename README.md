@@ -1,0 +1,1 @@
+# Playwrigth_MCP_E2E
