@@ -5,7 +5,7 @@ from home_page_locators import ABOUT_NAV_LINK
 
 def test_about_link_no_400_error():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chrome.launch(headless=False)
         page = browser.new_page()
 
         # Step 1: Navigate to the Soho House home page
