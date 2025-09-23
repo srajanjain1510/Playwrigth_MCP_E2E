@@ -1,19 +1,27 @@
 # tests/test_home_page.py
-
+import pytest
 from playwright.sync_api import sync_playwright
-from locators.home_page_locators import WELLNESS_MENU, WELLNESS_SUBMENUS
+from locators.home_page_locators import HomePageLocators
 
-def test_wellness_menu_submenus():
+@pytest.fixture(scope="session")
+def browser():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-        page.goto("https://www.sohohouse.com/en-us/")
-        page.click(WELLNESS_MENU)
-        page.wait_for_selector(WELLNESS_SUBMENUS, timeout=5000)
-        submenu_elements = page.query_selector_all(WELLNESS_SUBMENUS)
-        submenu_names = [el.inner_text().strip() for el in submenu_elements]
-        print("Wellness Submenus:", submenu_names)
+        yield browser
         browser.close()
 
-if __name__ == "__main__":
-    test_wellness_menu_submenus()
+@pytest.fixture(scope="function")
+def page(browser):
+    page = browser.new_page()
+    yield page
+    page.close()
+
+def test_search_box_visible(page):
+    page.goto("https://example.com")
+    assert page.is_visible(HomePageLocators.SEARCH_BOX)
+
+def test_login_link(page):
+    page.goto("https://example.com")
+    assert page.is_visible(HomePageLocators.LOGIN_LINK)
+    page.click(HomePageLocators.LOGIN_LINK)
+    assert page.url == "https://example.com/login"
