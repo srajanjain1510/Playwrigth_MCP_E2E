@@ -1,4 +1,3 @@
-# home_page_locators.py
-
-# Locator for the 'About' navigation link on the home page
- HOUSES_NAV_LINK = "a[href='/houses']"
+SUBMIT_BUTTON = "button#submit"
+USERNAME_INPUT = "input#username"
+SUCCESS_MESSAGE = "div#success"
