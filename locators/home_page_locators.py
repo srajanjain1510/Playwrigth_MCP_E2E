@@ -1,4 +1,6 @@
 # locators/home_page_locators.py
 
-WELLNESS_MENU = "a[data-testid='top-menu-link'][href*='wellness']"
-WELLNESS_SUBMENUS = "nav[aria-label='Wellness'] ul li a, nav[aria-label='Wellness'] ul li button"
+class HomePageLocators:
+    SEARCH_BOX = "#search-box"
+    SEARCH_BUTTON = "#search-btn"
+    LOGIN_LINK = "#login-link"
