@@ -1,4 +1,6 @@
 # locators/home_page_locators.py
 
-WELLNESS_MENU = "a[data-testid='top-menu-link'][href*='wellness']"
-WELLNESS_SUBMENUS = "nav[aria-label='Wellness'] ul li a, nav[aria-label='Wellness'] ul li button"
+SHOP_BUTTON = {"role": "button", "name": "Shop"}
+SOHO_HOME_LINK = {"role": "link", "name": "Soho Home"}
+COWSHED_LINK = {"role": "link", "name": "Cowshed"}
+SOHO_SKIN_LINK = {"role": "link", "name": "Soho Skin"}
